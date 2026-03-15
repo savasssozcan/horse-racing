@@ -2,6 +2,14 @@
 
 Vue 3 + Vuex 4 + Vite ile at yarışı simülasyonu, **Module Federation** ile microfrontend mimarisinde.
 
+## Live (Vercel)
+
+| App | URL |
+|-----|-----|
+| **Main** (host, tüm uygulama) | https://horse-racing-eta.vercel.app/ |
+| **Panels** (standalone: Horse List + Program & Results) | https://horse-racing-panels.vercel.app/ |
+| **Race track** (standalone: yarış ekranı) | https://horse-racing-race-track.vercel.app/ |
+
 ## Architecture
 
 | Uygulama    | Port | İçerik |
