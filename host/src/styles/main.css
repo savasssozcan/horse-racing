@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+}
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel .os-scrollbar-vertical .os-scrollbar-handle {
+  background: rgba(126, 184, 218, 0.4);
+  border-radius: 4px;
+}
+.panel .os-scrollbar-vertical .os-scrollbar-handle:hover {
+  background: rgba(126, 184, 218, 0.7);
+}
+.panel .os-scrollbar-vertical .os-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+.panel.os-theme-dark .os-scrollbar-vertical {
+  width: 8px;
+  padding: 2px 0;
+}

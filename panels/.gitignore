@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+*.local
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test & coverage
+coverage/
+.vitest/
+
+# Cache
+.cache/
+.vite/
+.eslintcache
+
+# OS
+.DS_Store

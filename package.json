@@ -4,17 +4,21 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "vue": "^3.4.0",
-    "vuex": "^4.1.0"
+    "dev": "concurrently -n panels,race,host -c blue,green,magenta \"npm run dev:panels\" \"npm run dev:race-track\" \"npm run dev:host\"",
+    "dev:host": "npm run dev --prefix host",
+    "dev:panels": "npm run dev --prefix panels",
+    "dev:race-track": "npm run dev --prefix race-track",
+    "build": "npm run build --prefix panels && npm run build --prefix race-track && npm run build --prefix host",
+    "preview": "npm run preview --prefix host",
+    "test": "cd host && npm run test && cd ../panels && npm run test && cd ../race-track && npm run test",
+    "test:coverage": "cd host && npm run test:coverage && cd ../panels && npm run test:coverage && cd ../race-track && npm run test:coverage",
+    "test:watch": "concurrently -n host,panels,race \"cd host && npm run test:watch\" \"cd panels && npm run test:watch\" \"cd race-track && npm run test:watch\"",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "e2e:headed": "playwright test --headed"
   },
   "devDependencies": {
-    "@rollup/rollup-darwin-arm64": "^4.28.1",
-    "@vitejs/plugin-vue": "^5.0.0",
-    "vite": "^5.0.0"
+    "@playwright/test": "^1.49.0",
+    "concurrently": "^8.2.2"
   }
 }
