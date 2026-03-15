@@ -57,6 +57,21 @@ npm run build
 npm run preview   # host'u production build ile önizle (remotes için build URL'leri güncellenmeli)
 ```
 
+## Deploy (Vercel)
+
+Deploy host, panels ve race-track’i **ayrı Vercel projeleri** olarak yayınlayın (monorepo: her biri için Root Directory sırasıyla `host`, `panels`, `race-track`; Build Command `npm run build`, Output/Root `dist` veya Vite default).
+
+**Host** build’inde remotes’ların production URL’lerini kullanması için Vercel’de **Environment Variables** ekleyin:
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `VITE_REMOTE_PANELS_URL` | Panels remote entry (build sonrası) | `https://horse-racing-panels.vercel.app/assets/remoteEntry.js` |
+| `VITE_REMOTE_RACE_TRACK_URL` | Race-track remote entry | `https://horse-racing-race-track.vercel.app/assets/remoteEntry.js` |
+
+- Önce **panels** ve **race-track**’i deploy edin, sonra her birinin `https://<proje>.vercel.app/assets/remoteEntry.js` adresini kopyalayıp host projesinde yukarıdaki env değişkenlerine yapıştırın.
+- Host’u deploy ederken bu iki env tanımlı olmalı; yoksa host localhost URL’lerini kullanır (production’da çalışmaz).
+- Örnek: `.env.example` dosyasına bakın.
+
 ## Test
 
 Unit testler **Vitest** ve **@vue/test-utils** ile yazılmıştır.
